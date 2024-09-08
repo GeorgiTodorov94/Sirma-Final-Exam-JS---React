@@ -8,14 +8,29 @@ export default function Matches() {
     const matches = useCSVData('matches.csv');
     const players = useCSVData('players.csv');
     const records = useCSVData('records.csv');
+    console.log(matches)
+    console.log(teams)
+
+    const clubsNames = {};
+    teams.forEach(team => {
+        clubsNames[team.ID] = team.Name
+    });
+
+    const matchesWithClubNames = matches.map(match => {
+        return {
+            ...match,
+            ATeamName: clubsNames[match.ATeamID] || 'Uknown Club',
+            BTeamName: clubsNames[match.BTeamID] || 'Uknown Club'
+        };
+    });
+
 
 
     return (
         <>
-            {matches.length > 0 &&
+            {matchesWithClubNames.length > 0 &&
                 (
-                    matches.map(match => <MatchCard key={match.ID} {...match} />)
-
+                    matchesWithClubNames.map(match => <MatchCard key={match.ID} {...match} />)
                 )
             }
         </>)

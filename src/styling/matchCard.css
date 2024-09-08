@@ -59,3 +59,8 @@
     font-size: 0.8em;
     color: #777;
 }
+
+.match-card-container {
+    display: flex;
+    flex-direction: row;
+}

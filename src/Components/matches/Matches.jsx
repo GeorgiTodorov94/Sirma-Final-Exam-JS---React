@@ -35,7 +35,21 @@ export default function Matches() {
         const matchDate = new Date(match.Date);
         return matchDate > groupStageEndDate
     })
-    console.log(matchesAfterGroupStages)
+
+    const eighthFinalMatches = matchesWithClubNames.filter(match => {
+        const startDate = new Date('2024-06-28');
+        const endDate = new Date('2024-07-02');
+        const matchDate = new Date(match.Date);
+        console.log(matchDate)
+        if (matchDate > startDate && matchDate <= endDate) {
+            console.log(matchDate)
+            return matchDate
+        }
+        // return matchDate > startDate && matchDate < endDate
+    })
+    console.log(eighthFinalMatches)
+
+    console.log(eighthFinalMatches)
 
 
 
@@ -51,7 +65,6 @@ export default function Matches() {
                     (
                         matchesInGroupStages.map(match => <MatchCard key={match.ID} {...match} />)
                     )
-
                 }
 
                 {matchesInGroupStages.length < 0 &&
@@ -64,19 +77,18 @@ export default function Matches() {
             </div>
 
             <div className="group-stages-text-container">
-                Matches After Group Stages
+                Eight Finals Stage
             </div>
 
             <div className="match-card-container">
 
-                {matchesAfterGroupStages.length > 0 &&
+                {eighthFinalMatches.length > 0 &&
                     (
-                        matchesAfterGroupStages.map(match => <MatchCard key={match.ID} {...match} />)
+                        eighthFinalMatches.map(match => <MatchCard key={match.ID} {...match} />)
                     )
-
                 }
 
-                {matchesAfterGroupStages.length < 0 &&
+                {eighthFinalMatches.length < 0 &&
                     (
                         <div>
                             There is no data available at this moment.
@@ -84,8 +96,6 @@ export default function Matches() {
                     )
                 }
             </div>
-
-
         </>
     );
 }

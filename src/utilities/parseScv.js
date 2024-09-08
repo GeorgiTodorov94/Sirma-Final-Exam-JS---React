@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 export const parseCSV = (text) => {
     const rows = text.trim().split('\n');
     const headers = rows[0].split(',');
@@ -8,4 +10,16 @@ export const parseCSV = (text) => {
             return object
         }, {});
     })
+}
+
+export const useCSVData = (filename) => {
+    const [data, setData] = useState([]);
+    console.log(filename)
+
+    useEffect(() => {
+        fetch(`/csv/${filename}`)
+            .then(response => response.text())
+            .then(text => setData(parseCSV(text)))
+    }, [filename])
+    return data;
 }

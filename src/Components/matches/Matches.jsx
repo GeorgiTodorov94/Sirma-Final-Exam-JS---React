@@ -1,4 +1,4 @@
-import { parseCSV, useCSVData } from "../../utilities/parseScv"
+import { useCSVData } from "../../utilities/parseScv"
 import MatchCard from "../match-card/MatchCard"
 
 export default function Matches() {
@@ -19,19 +19,35 @@ export default function Matches() {
     const matchesWithClubNames = matches.map(match => {
         return {
             ...match,
-            ATeamName: clubsNames[match.ATeamID] || 'Uknown Club',
-            BTeamName: clubsNames[match.BTeamID] || 'Uknown Club'
+            ATeamName: clubsNames[match.ATeamID] || 'Unknown Club',
+            BTeamName: clubsNames[match.BTeamID] || 'Unknown Club'
         };
     });
 
 
-
     return (
         <>
-            {matchesWithClubNames.length > 0 &&
-                (
-                    matchesWithClubNames.map(match => <MatchCard key={match.ID} {...match} />)
-                )
-            }
-        </>)
+            <div className="group-stages-container">
+                Group Stages
+            </div>
+
+            <div className="match-card-container">
+
+                {matchesWithClubNames.length > 0 &&
+                    (
+                        matchesWithClubNames.map(match => <MatchCard key={match.ID} {...match} />)
+                    )
+
+                }
+
+                {matchesWithClubNames.length < 0 &&
+                    (
+                        <div>
+                            There is no data available at this moment.
+                        </div>
+                    )
+                }
+            </div>
+        </>
+    );
 }

@@ -1,4 +1,5 @@
 import '../../styling/footer.css'
+import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return (
@@ -6,9 +7,9 @@ export default function Footer() {
             <p>&copy; 2024 EURO Football Championship. All rights reserved.</p>
             <nav>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><Link to="#">Privacy Policy</Link></li>
+                    <li><Link to="#">Terms of Service</Link></li>
+                    <li><Link to="#">Contact Us</Link></li>
                 </ul>
             </nav>
         </div>

@@ -7,6 +7,7 @@
     padding: 20px;
     width: 400px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 5px 5px 5px 5px;
 }
 
 .team {
@@ -44,10 +45,11 @@
     margin-bottom: 5px;
 }
 
+/* 
 .match-result.win {
     background-color: #28a745;
     color: white;
-}
+} */
 
 .score {
     font-size: 2em;
@@ -62,5 +64,10 @@
 
 .match-card-container {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.team-info p {
+    margin-top: 10px;
 }

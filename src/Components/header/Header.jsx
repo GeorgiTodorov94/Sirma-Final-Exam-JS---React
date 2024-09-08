@@ -7,7 +7,7 @@ export default function Header() {
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Matches</a></li>
+                    <li><a href="/matches">Matches</a></li>
                     <li><a href="#">Teams</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>

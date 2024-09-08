@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router"
+
 import "../../styling/matchCard.css"
 
 export default function MatchCard({ ...match }) {
+
     const [ATeamScore, BTeamScore] = match.Score.split('-')
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+
     return (
 
         <div className="match-card">

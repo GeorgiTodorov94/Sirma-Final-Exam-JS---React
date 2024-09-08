@@ -8,8 +8,8 @@ export default function Matches() {
     const matches = useCSVData('matches.csv');
     const players = useCSVData('players.csv');
     const records = useCSVData('records.csv');
-    console.log(matches)
-    console.log(teams)
+    // console.log(matches)
+    // console.log(teams)
 
     const clubsNames = {};
     teams.forEach(team => {
@@ -40,16 +40,37 @@ export default function Matches() {
         const startDate = new Date('2024-06-28');
         const endDate = new Date('2024-07-02');
         const matchDate = new Date(match.Date);
-        console.log(matchDate)
         if (matchDate > startDate && matchDate <= endDate) {
-            console.log(matchDate)
             return matchDate
         }
-        // return matchDate > startDate && matchDate < endDate
     })
-    console.log(eighthFinalMatches)
 
-    console.log(eighthFinalMatches)
+    const quarterFinals = matchesWithClubNames.filter(match => {
+        const startDate = new Date('2024-07-04');
+        const endDate = new Date('2024-07-06');
+        const matchDate = new Date(match.Date);
+        if (matchDate > startDate && matchDate <= endDate) {
+            return matchDate
+        }
+    })
+
+    const semiFinals = matchesWithClubNames.filter(match => {
+        const startDate = new Date('2024-07-08');
+        const endDate = new Date('2024-07-11');
+        const matchDate = new Date(match.Date);
+        if (matchDate > startDate && matchDate <= endDate) {
+            return matchDate
+        }
+    })
+
+    console.log(matchesWithClubNames)
+
+    // const grandFinal = matchesWithClubNames?.reduce((latest, currentMatch) => {
+    //     const latestDate = new Date(latest.Date)
+    //     const currentDate = new Date(currentMatch.Date)
+
+    //     return currentDate > latestDate ? currentMatch : latest
+    // })
 
 
 
@@ -77,7 +98,7 @@ export default function Matches() {
             </div>
 
             <div className="group-stages-text-container">
-                Eight Finals Stage
+                Eight-Finals Stage
             </div>
 
             <div className="match-card-container">
@@ -96,6 +117,72 @@ export default function Matches() {
                     )
                 }
             </div>
+
+            <div className="group-stages-text-container">
+                Quarter-Finals Stage
+            </div>
+
+            <div className="match-card-container">
+
+                {quarterFinals.length > 0 &&
+                    (
+                        quarterFinals.map(match => <MatchCard key={match.ID} {...match} />)
+                    )
+                }
+
+                {quarterFinals.length < 0 &&
+                    (
+                        <div>
+                            There is no data available at this moment.
+                        </div>
+                    )
+                }
+            </div>
+
+            <div className="group-stages-text-container">
+                Semi-Finals Stage
+            </div>
+
+            <div className="match-card-container">
+
+                {semiFinals.length > 0 &&
+                    (
+                        semiFinals.map(match => <MatchCard key={match.ID} {...match} />)
+                    )
+                }
+
+                {semiFinals.length < 0 &&
+                    (
+                        <div>
+                            There is no data available at this moment.
+                        </div>
+                    )
+                }
+            </div>
+
+            <div className="group-stages-text-container">
+                Grand Final
+            </div>
+
+            <div className="match-card-container">
+                {/* <MatchCard key={grandFinal.ID} match={grandFinal} /> */}
+
+                {/* // {grandFinal.length > 0 &&
+                //     (
+                //         grandFinal.map(grandFinal => <MatchCard key={grandFinal.ID} match={grandFinal} />)
+                //     )
+                // }
+
+                // {grandFinal.length < 0 &&
+                //     (
+                //         <div>
+                //             There is no data available at this moment.
+                //         </div>
+                //     )
+                // } */}
+            </div>
+
+
         </>
     );
 }

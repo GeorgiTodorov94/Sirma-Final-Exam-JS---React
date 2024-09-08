@@ -71,3 +71,9 @@
 .team-info p {
     margin-top: 10px;
 }
+
+.group-stages-text-container {
+    padding: 20px;
+    font-size: 25px;
+    font-weight: 700;
+}

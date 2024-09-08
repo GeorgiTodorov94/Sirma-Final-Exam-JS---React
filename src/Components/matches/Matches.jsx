@@ -24,23 +24,37 @@ export default function Matches() {
         };
     });
 
+    const groupStageEndDate = new Date('2024-06-26');
+
+    const matchesInGroupStages = matchesWithClubNames.filter(match => {
+        const matchDate = new Date(match.Date);
+        return matchDate <= groupStageEndDate
+    })
+
+    const matchesAfterGroupStages = matchesWithClubNames.filter(match => {
+        const matchDate = new Date(match.Date);
+        return matchDate > groupStageEndDate
+    })
+    console.log(matchesAfterGroupStages)
+
+
 
     return (
         <>
-            <div className="group-stages-container">
+            <div className="group-stages-text-container">
                 Group Stages
             </div>
 
             <div className="match-card-container">
 
-                {matchesWithClubNames.length > 0 &&
+                {matchesInGroupStages.length > 0 &&
                     (
-                        matchesWithClubNames.map(match => <MatchCard key={match.ID} {...match} />)
+                        matchesInGroupStages.map(match => <MatchCard key={match.ID} {...match} />)
                     )
 
                 }
 
-                {matchesWithClubNames.length < 0 &&
+                {matchesInGroupStages.length < 0 &&
                     (
                         <div>
                             There is no data available at this moment.
@@ -48,6 +62,30 @@ export default function Matches() {
                     )
                 }
             </div>
+
+            <div className="group-stages-text-container">
+                Matches After Group Stages
+            </div>
+
+            <div className="match-card-container">
+
+                {matchesAfterGroupStages.length > 0 &&
+                    (
+                        matchesAfterGroupStages.map(match => <MatchCard key={match.ID} {...match} />)
+                    )
+
+                }
+
+                {matchesAfterGroupStages.length < 0 &&
+                    (
+                        <div>
+                            There is no data available at this moment.
+                        </div>
+                    )
+                }
+            </div>
+
+
         </>
     );
 }

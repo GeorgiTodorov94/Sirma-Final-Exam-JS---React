@@ -6,7 +6,7 @@ export default function Field() {
         <div className='fields-container'>
 
             <div class="fields">
-                <div class="soccer-field">
+                <div class="soccer-fieldA">
                     <div class="halfway-line"></div>
                     <div class="center-circle"></div>
                     <div class="penalty-area top"></div>
@@ -27,9 +27,9 @@ export default function Field() {
                     <div className="player team-a" style={{ top: '30%', left: '35%' }}>DF</div>
                     <div className="player team-a" style={{ top: '30%', left: '60%' }}>DF</div>
                     <div className="player team-a" style={{ top: '30%', left: '85%' }}>DF</div>
-                    <div className="player team-a" style={{ top: '45%', left: '20%' }}>MID</div>
-                    <div className="player team-a" style={{ top: '45%', left: '46.7%' }}>MID</div>
-                    <div className="player team-a" style={{ top: '45%', left: '78%' }}>MID</div>
+                    <div className="player team-a" style={{ top: '45%', left: '20%' }}>MD</div>
+                    <div className="player team-a" style={{ top: '45%', left: '46.7%' }}>MD</div>
+                    <div className="player team-a" style={{ top: '45%', left: '78%' }}>MD</div>
                     <div className="player team-a" style={{ top: '62%', left: '20%' }}>FW</div>
                     <div className="player team-a" style={{ top: '62%', left: '48%' }}>FW</div>
                     <div className="player team-a" style={{ top: '62%', left: '78%' }}>FW</div>
@@ -39,15 +39,15 @@ export default function Field() {
                     <div className="player team-b" style={{ top: '70%', left: '35%' }}>DF</div>
                     <div className="player team-b" style={{ top: '70%', left: '60%' }}>DF</div>
                     <div className="player team-b" style={{ top: '70%', left: '85%' }}>DF</div>
-                    <div className="player team-b" style={{ top: '55%', left: '30%' }}>MID</div>
-                    <div className="player team-b" style={{ top: '55%', left: '47%' }}>MID</div>
-                    <div className="player team-b" style={{ top: '55%', left: '63%' }}>MID</div>
+                    <div className="player team-b" style={{ top: '55%', left: '30%' }}>MD</div>
+                    <div className="player team-b" style={{ top: '55%', left: '47%' }}>MD</div>
+                    <div className="player team-b" style={{ top: '55%', left: '63%' }}>MD</div>
                     <div className="player team-b" style={{ top: '38%', left: '27%' }}>FW</div>
                     <div className="player team-b" style={{ top: '38%', left: '47%' }}>FW</div>
                     <div className="player team-b" style={{ top: '38%', left: '66%' }}>FW</div>
                 </div>
 
-                <div class="soccer-field">
+                <div class="soccer-fieldB">
                     <div class="halfway-line"></div>
                     <div class="center-circle"></div>
                     <div class="penalty-area top"></div>
@@ -68,9 +68,9 @@ export default function Field() {
                     <div className="player team-a" style={{ top: '30%', left: '35%' }}>DF</div>
                     <div className="player team-a" style={{ top: '30%', left: '60%' }}>DF</div>
                     <div className="player team-a" style={{ top: '30%', left: '85%' }}>DF</div>
-                    <div className="player team-a" style={{ top: '45%', left: '20%' }}>MID</div>
-                    <div className="player team-a" style={{ top: '45%', left: '46.7%' }}>MID</div>
-                    <div className="player team-a" style={{ top: '45%', left: '78%' }}>MID</div>
+                    <div className="player team-a" style={{ top: '45%', left: '20%' }}>MD</div>
+                    <div className="player team-a" style={{ top: '45%', left: '46.7%' }}>MD</div>
+                    <div className="player team-a" style={{ top: '45%', left: '78%' }}>MD</div>
                     <div className="player team-a" style={{ top: '62%', left: '20%' }}>FW</div>
                     <div className="player team-a" style={{ top: '62%', left: '48%' }}>FW</div>
                     <div className="player team-a" style={{ top: '62%', left: '78%' }}>FW</div>
@@ -80,9 +80,9 @@ export default function Field() {
                     <div className="player team-b" style={{ top: '70%', left: '35%' }}>DF</div>
                     <div className="player team-b" style={{ top: '70%', left: '60%' }}>DF</div>
                     <div className="player team-b" style={{ top: '70%', left: '85%' }}>DF</div>
-                    <div className="player team-b" style={{ top: '55%', left: '30%' }}>MID</div>
-                    <div className="player team-b" style={{ top: '55%', left: '47%' }}>MID</div>
-                    <div className="player team-b" style={{ top: '55%', left: '63%' }}>MID</div>
+                    <div className="player team-b" style={{ top: '55%', left: '30%' }}>MD</div>
+                    <div className="player team-b" style={{ top: '55%', left: '47%' }}>MD</div>
+                    <div className="player team-b" style={{ top: '55%', left: '63%' }}>MD</div>
                     <div className="player team-b" style={{ top: '38%', left: '27%' }}>FW</div>
                     <div className="player team-b" style={{ top: '38%', left: '47%' }}>FW</div>
                     <div className="player team-b" style={{ top: '38%', left: '66%' }}>FW</div>

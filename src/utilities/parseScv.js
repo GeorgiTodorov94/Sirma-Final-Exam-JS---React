@@ -16,16 +16,34 @@ const parseCSV = (text) => {
 };
 
 export const useCSVData = (filename) => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(() => {
+
+        const storedData = localStorage.getItem(filename)
+        return storedData ? JSON.parse(storedData) : [];
+    });
+
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const fetchData = async () => {
+            const response = await fetch(`/csv/${filename}`);
+            const text = await response.text();
+            const parsedData = parseCSV(text);
+            setData(parsedData);
 
-        fetch(`/csv/${filename}`)
-            .then(response => response.text())
-            .then(text => setData(parseCSV(text)))
+            localStorage.setItem(filename, JSON.stringify(parsedData));
+            setLoading(false);
+        }
+
+        if (!localStorage.getItem(filename)) {
+            fetchData();
+        } else {
+            setLoading(false);
+        }
+
     }, [filename]);
 
-    return data;
+    return { data, loading };
 }
 
 // export const matches = useCSVData('matches.csv');

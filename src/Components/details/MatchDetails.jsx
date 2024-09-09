@@ -8,7 +8,11 @@ import { useData } from "../../utilities/dataContext";
 
 export default function MatchDetails() {
     const matchID = Object.values(useParams())[0];
-    const { players, matches, teams } = useData();
+    const { data: players, loading1 } = useCSVData('players.csv');
+    const { data: matches, loading2 } = useCSVData('matches.csv');
+    const { data: teams, loading3 } = useCSVData('teams.csv');
+
+    const [loading, setLoading] = useState(true)
 
     // A random idea ->>>>> \n
     // Instead of calling useCSVData each time in every component I have to try to use createContext and save the data in the local storage
@@ -27,12 +31,16 @@ export default function MatchDetails() {
 
     useEffect(() => {
         if (matches.length && teams.length) {
-            const currentlySelectedMatch = matches.find(m => m.ID === matchID)
-            // setCurrentMatch(Object.assign({}, currentMatch, currentlySelectedMatch));
-            setCurrentMatch(prev => ({ ...prev, ...currentlySelectedMatch }))
+            const currentlySelectedMatch = matches.find(m => m.ID === matchID);
+            setLoading(false)
+            setCurrentMatch(Object.assign({}, currentMatch, currentlySelectedMatch));
+            setLoading(true);
+            console.log(currentMatch)
+            // setCurrentMatch(prev => ({ ...prev, ...currentlySelectedMatch }));
             declarePlayersAndTeams();
-        }
-    }, [matches, teams]);
+            setLoading(false);
+        };
+    }, [matches, players, teams, loading]);
 
     const groupingPlayersByTeamID = (data) => {
         return players.reduce((acc, player) => {
@@ -44,24 +52,30 @@ export default function MatchDetails() {
             acc[player.TeamID].push(player);
             return acc;
 
-        }, {})
-    }
+        }, {});
+    };
 
     function declarePlayersAndTeams() {
         let playersByTeams = groupingPlayersByTeamID(players);
         setGroupedPlayersByTeamID(Object.values(playersByTeams));
+
+        if (!groupedPlayersByTeamID.length) {
+            return <div>Loading...</div>
+        }
+        // console.log(groupedPlayersByTeamID);
         return groupedPlayersByTeamID;
     };
 
+
     if (!players.length || !teams.length || !currentMatch.ID) {
-        return <div>Loading...</div>;
+        return <div>Loading...</div>
     }
 
     return (
         <>
             <h1> Match Details </h1>
 
-            <Field teams={teams} match={currentMatch} key={currentMatch.ID} groupedPlayersByTeamID={groupedPlayersByTeamID} />
+            <Field match={currentMatch} key={currentMatch.ID} groupedPlayersByTeamID={groupedPlayersByTeamID} />
 
         </>
     );

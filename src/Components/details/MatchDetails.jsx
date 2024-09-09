@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useCSVData } from "../../utilities/parseScv";
 import { useParams } from "react-router";
 
-import Field from "./Field";
+import Field from "../fields/Field";
 import { useData } from "../../utilities/dataContext";
 
 

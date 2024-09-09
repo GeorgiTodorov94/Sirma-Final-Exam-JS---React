@@ -1,7 +1,17 @@
-export default function FieldB() {
+export default function FieldB({
+    team,
+    players
+}) {
     return (
         <>
-            <div className='team-b-name'></div>
+            <div className='team-a-name' style={{ left: '50%', position: 'absolute' }}>
+                <span className="teamName" style={{ color: 'red', padding: '5px' }}>{team.Name}</span>
+                {players.length > 0 && (
+                    players.map(p => <div className="roster-container" >
+                        <div className="player-info">{Object.values(p).slice(2)}</div>
+                    </div>)
+                )}
+            </div>
             <div className="soccer-fieldB">
                 <div className="halfway-line"></div>
                 <div className="center-circle"></div>

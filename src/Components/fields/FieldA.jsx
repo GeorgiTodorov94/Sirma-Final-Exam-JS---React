@@ -1,6 +1,22 @@
-export default function FieldA() {
+export default function FieldA({
+    team,
+    players,
+}) {
+    const playersArr = players.map((p) => console.log(p))
+    console.log(playersArr)
+
     return (
+        // To create the roster Component and CSS 
+        // The hard part is over.
         <>
+            <div className='team-a-name' style={{ right: '50%', position: 'absolute' }}>
+                <span className="teamName" style={{ color: 'red', padding: '5px' }}>{team.Name}</span>
+                {players.length > 0 && (
+                    players.map(p => <div className="roster-container" >
+                        <div className="player-info">{Object.values(p).slice(2)}</div>
+                    </div>)
+                )}
+            </div>
             <div className="soccer-fieldA">
                 <div className="halfway-line"></div>
                 <div className="center-circle"></div>

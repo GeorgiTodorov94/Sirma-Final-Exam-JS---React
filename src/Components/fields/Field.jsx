@@ -63,10 +63,9 @@ export default function Field({
 
     return (
         <div className='fields-container'>
-            <div className='team-a-name'>{matchDetails.teamA.Name}</div>
             <div className="fields">
-                <FieldA key={matchDetails.teamA.ID} teamA={matchDetails.teamA} players={matchDetails.teamAPlayers} />
-                <FieldB key={matchDetails.teamB.ID} teamB={matchDetails.teamB} players={matchDetails.teamBPlayers} />
+                <FieldA key={matchDetails.teamA.ID} team={matchDetails.teamA} players={matchDetails.teamAPlayers} />
+                <FieldB key={matchDetails.teamB.ID} team={matchDetails.teamB} players={matchDetails.teamBPlayers} />
 
             </div>
 

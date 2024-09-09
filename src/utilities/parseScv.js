@@ -7,19 +7,19 @@ export const parseCSV = (text) => {
         const values = row.split(',');
         return headers.reduce((object, header, index) => {
             object[header] = values[index];
-            return object
+            return object;
         }, {});
     })
 }
 
 export const useCSVData = (filename) => {
     const [data, setData] = useState([]);
-    console.log(filename)
 
     useEffect(() => {
         fetch(`/csv/${filename}`)
             .then(response => response.text())
             .then(text => setData(parseCSV(text)))
-    }, [filename])
+    }, [filename]);
+
     return data;
 }

@@ -6,6 +6,7 @@ export default function MatchCard({ ...match }) {
 
     const [ATeamScore, BTeamScore] = match.Score.split('-')
     const navigate = useNavigate();
+    console.log(match)
 
 
     return (
@@ -27,7 +28,7 @@ export default function MatchCard({ ...match }) {
                 <div className="score">
                     <span>{ATeamScore}</span> : <span>{BTeamScore}</span>
                 </div>
-                <p className="home-label">Match Details</p>
+                <button className="home-label" onClick={() => navigate(`/match-details/${match.ID}`)}>Match Details</button>
             </div>
 
             <div className="team team2">

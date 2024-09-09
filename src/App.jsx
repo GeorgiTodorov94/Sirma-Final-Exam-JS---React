@@ -13,6 +13,7 @@ function App() {
             <Route path='/' element={<Homepage />}></Route>
             <Route path='/matches' element={<Matches />}></Route>
             <Route path='/team-details/:teamID' element={<TeamDetails />}></Route>
+            <Route path='/match-details/:matchID' element={<MatchDetails />}></Route>
         </Routes >
     )
 }

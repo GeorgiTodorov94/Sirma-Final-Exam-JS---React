@@ -43,7 +43,7 @@ export const useCSVData = (filename) => {
 
     }, [filename]);
 
-    return { data, loading };
+    return data;
 }
 
 // export const matches = useCSVData('matches.csv');

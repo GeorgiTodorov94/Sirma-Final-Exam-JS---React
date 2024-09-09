@@ -8,9 +8,9 @@ import { useData } from "../../utilities/dataContext";
 
 export default function MatchDetails() {
     const matchID = Object.values(useParams())[0];
-    const { data: players, loading1 } = useCSVData('players.csv');
-    const { data: matches, loading2 } = useCSVData('matches.csv');
-    const { data: teams, loading3 } = useCSVData('teams.csv');
+    const { data: players } = useCSVData('players.csv');
+    const { data: matches } = useCSVData('matches.csv');
+    const { data: teams } = useCSVData('teams.csv');
 
     const [loading, setLoading] = useState(true)
 
@@ -35,7 +35,7 @@ export default function MatchDetails() {
             setLoading(false)
             setCurrentMatch(Object.assign({}, currentMatch, currentlySelectedMatch));
             setLoading(true);
-            console.log(currentMatch)
+            // console.log(currentMatch)
             // setCurrentMatch(prev => ({ ...prev, ...currentlySelectedMatch }));
             declarePlayersAndTeams();
             setLoading(false);

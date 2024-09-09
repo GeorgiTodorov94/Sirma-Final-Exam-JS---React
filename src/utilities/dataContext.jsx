@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useCSVData } from '../utilities/parseScv';
+import { useCSVData } from './parseScv';
 
 const DataContext = createContext();
 

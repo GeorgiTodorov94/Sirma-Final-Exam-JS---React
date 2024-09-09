@@ -10,6 +10,7 @@ import FetchAndProvideData from './utilities/dataContext'
 function App() {
 
     return (
+
         <FetchAndProvideData>
             <Routes>
                 <Route path='/' element={<Homepage />}></Route>
@@ -18,8 +19,7 @@ function App() {
                 <Route path='/match-details/:matchID' element={<MatchDetails />}></Route>
             </Routes >
         </FetchAndProvideData>
-
-    )
-}
+    );
+};
 
 export default App

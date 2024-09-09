@@ -6,7 +6,7 @@ import '../../styling/field.css';
 
 export default function Field({
     match,
-    groupedPlayersByTeam,
+    groupedPlayersByTeamID,
 }) {
 
     const [currentTeams, setCurrentTeams] = useState({})
@@ -19,10 +19,10 @@ export default function Field({
                 ...prev,
                 teams: teams,
                 currentMatch: match,
-                clubPlayers: groupedPlayersByTeam
+                clubPlayers: groupedPlayersByTeamID
             }));
         };
-    }, [teams, match, groupedPlayersByTeam]);
+    }, [teams, match, groupedPlayersByTeamID]);
 
 
     if (!currentTeams.length || !currentMatch || !clubPlayers) {

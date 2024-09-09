@@ -20,23 +20,19 @@
     height: 500px;
     background-color: green;
     border: 3px solid white;
-    /* margin: 20px; */
 }
 
 h1 {
     margin: 10px;
     color: white;
-    /* text-shadow: black; */
 }
 
 .soccer-fieldB {
     position: relative;
-    /* right: 12%; */
     width: 300px;
     height: 500px;
     background-color: green;
     border: 3px solid white;
-    /* margin: 20px; */
 }
 
 .halfway-line,
@@ -76,7 +72,7 @@ h1 {
 }
 
 .penalty-area.bottom {
-    top: 84.5%;
+    top: 85.5%;
     left: 25%;
     width: 50%;
     height: 15%;
@@ -100,7 +96,7 @@ h1 {
 }
 
 .penalty-spot.top {
-    top: 15%;
+    top: 8%;
     left: 50%;
     width: 4px;
     height: 4px;
@@ -110,7 +106,7 @@ h1 {
 }
 
 .penalty-spot.bottom {
-    bottom: 15%;
+    bottom: 8%;
     left: 50%;
     width: 4px;
     height: 4px;

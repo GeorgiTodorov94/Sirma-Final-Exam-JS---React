@@ -22,6 +22,7 @@ export default function FetchAndProvideData({ children }) {
             teams
         })
     }, [players.data, matches.data, teams.data]);
+    // console.log(matches.data)
 
 
     return (

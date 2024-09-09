@@ -3,57 +3,64 @@ import { useCSVData } from "../../utilities/parseScv";
 import { useEffect, useState } from 'react';
 
 import '../../styling/field.css';
+import { useData } from '../../utilities/dataContext';
 
 export default function Field({
     match,
     groupedPlayersByTeamID,
 }) {
 
-    const [currentTeams, setCurrentTeams] = useState({})
+    const [currentData, setCurrentData] = useState({})
     const matchID = Object.values(useParams())[0];
-    const { data: teams } = useCSVData('teams.csv');
+    const { teams, players, matches } = useData();
+    // console.log(teams.data)
+    // console.log(players.data)
+    // console.log(matches.data)
 
     useEffect(() => {
-        if (teams.length && match) {
-            setCurrentTeams(prev => ({
-                ...prev,
-                teams: teams,
-                currentMatch: match,
-                clubPlayers: groupedPlayersByTeamID
-            }));
-        };
-    }, [teams, match, groupedPlayersByTeamID]);
-    console.log(currentTeams.clubPlayers)
+        setCurrentData(prev => ({
+            ...prev,
+            teams: teams.data,
+            currentMatch: match,
+            clubPlayers: groupedPlayersByTeamID
+        }));
+    }, [match, teams.data, matches.data, players.data, matchID]);
 
+    console.log(currentData)
 
-    // if (!currentTeams.length || !currentMatch || !clubPlayers) {
-    //     return <div>Loading...</div>;
-    // }
+    if (!currentData.teams?.length || !currentData.currentMatch || !currentData.clubPlayers) {
+        return <div>Loading...</div>;
+    }
 
 
     const getMatchTeams = () => {
-        // console.log(currentTeams)
-        // const teamA = currentTeams?.teams?.find(t => t.ID === currentMatch.ATeamID);
-        // const teamB = currentTeams?.teams?.find(t => t.ID === currentMatch.BTeamID);
+
+        const teamA = currentData?.teams.find(t => t.ID === currentData?.currentMatch.ATeamID);
+        // console.log(teamA)
+        const teamB = currentData?.teams.find(t => t.ID === currentData?.currentMatch.BTeamID);
+        // console.log(teamB)
 
 
-        // const teamAPlayers = clubPlayers[teamA?.ID] || 'Undefined';
+        const teamAPlayers = currentData?.clubPlayers[teamA?.ID] || 'Undefined';
         // console.log(teamAPlayers)
-        // const teamBPlayers = clubPlayers[teamB?.ID] || 'Undefined';
+        const teamBPlayers = currentData?.clubPlayers[teamB?.ID] || 'Undefined';
+        // console.log(teamBPlayers)
 
-        // return {
-        //     teamA,
-        //     teamAPlayers,
-        //     teamB,
-        //     teamBPlayers
-        // };
+        return {
+            teamA,
+            teamAPlayers,
+            teamB,
+            teamBPlayers
+        };
     };
 
     const matchDetails = getMatchTeams();
-    // console.log(matchDetails)
+    console.log(matchDetails.teamA.Name)
+    console.log(matchDetails.teamB.Name)
 
     return (
         <div className='fields-container'>
+            {/* <div className='team-a-name'>{matchDetails.teamA.Name}</div> */}
             <div className="fields">
                 <div className="soccer-fieldA">
                     <div className="halfway-line"></div>
@@ -95,7 +102,7 @@ export default function Field({
                     <div className="player team-b" style={{ top: '38%', left: '47%' }}>FW</div>
                     <div className="player team-b" style={{ top: '38%', left: '66%' }}>FW</div>
                 </div>
-
+                {/* <div className='team-b-name'>{matchDetails.teamB.Name}</div> */}
                 <div className="soccer-fieldB">
                     <div className="halfway-line"></div>
                     <div className="center-circle"></div>

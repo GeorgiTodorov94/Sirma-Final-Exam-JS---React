@@ -58,6 +58,11 @@ export default function Field({
     // console.log(matchDetails.teamB.Name)
     const goalKeeperA = matchDetails.teamAPlayers.find(m => m.Position == "GK")
     const goalKeeperB = matchDetails.teamBPlayers.find(m => m.Position == "GK")
+    const DF = matchDetails.teamAPlayers.find(m => m.Position == "DF")
+    const D2 = matchDetails.teamAPlayers.find(m => m.Position == "DF" && m.ID !== DF.ID)
+    const D3 = matchDetails.teamAPlayers.find(m => m.Position == "DF" && m.ID !== D2.ID && m.ID !== DF.ID)
+    const D4 = matchDetails.teamAPlayers.find(m => m.Position == "DF" && m.ID !== D2.ID && m.ID !== DF.ID && m.ID !== D3.ID)
+    console.log(D4)
 
     return (
         <div className='fields-container'>
@@ -80,10 +85,10 @@ export default function Field({
                     <div className="corner-arc bottom-right"></div>
 
                     <div className="player team-a" style={{ top: '3%', left: '46.5%' }}>{goalKeeperA.FullName}</div>
-                    <div className="player team-a" style={{ top: '30%', left: '10%' }}>DF</div>
-                    <div className="player team-a" style={{ top: '30%', left: '35%' }}>DF</div>
-                    <div className="player team-a" style={{ top: '30%', left: '60%' }}>DF</div>
-                    <div className="player team-a" style={{ top: '30%', left: '85%' }}>DF</div>
+                    <div className="player team-a" style={{ top: '30%', left: '10%' }}>{DF.FullName}</div>
+                    <div className="player team-a" style={{ top: '30%', left: '35%' }}>{D2.FullName}</div>
+                    <div className="player team-a" style={{ top: '30%', left: '60%' }}>{D3.FullName}</div>
+                    <div className="player team-a" style={{ top: '30%', left: '85%' }}>{D4.FullName}</div>
                     <div className="player team-a" style={{ top: '45%', left: '20%' }}>MD</div>
                     <div className="player team-a" style={{ top: '45%', left: '46.7%' }}>MD</div>
                     <div className="player team-a" style={{ top: '45%', left: '78%' }}>MD</div>

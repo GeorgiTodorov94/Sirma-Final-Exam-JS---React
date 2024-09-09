@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 
 export const parseCSV = (text) => {
     const rows = text.trim().split('\n');
-    const headers = rows[0].split(',');
+    const headers = rows[0].trim().split(',');
     return rows.slice(1).map(row => {
-        const values = row.split(',');
+        // console.log(row.trim())
+        const values = row.trim().split(',');
         return headers.reduce((object, header, index) => {
             object[header] = values[index];
             return object;

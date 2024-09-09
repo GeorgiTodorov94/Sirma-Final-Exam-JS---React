@@ -8,22 +8,22 @@ export default function Field() {
         <div className='fields-container'>
 
 
-            <div class="fields">
-                <div class="soccer-fieldA">
-                    <div class="halfway-line"></div>
-                    <div class="center-circle"></div>
-                    <div class="penalty-area top"></div>
-                    <div class="penalty-area bottom"></div>
-                    <div class="goal-area top"></div>
-                    <div class="goal-area bottom"></div>
-                    <div class="penalty-spot top"></div>
-                    <div class="penalty-spot bottom"></div>
-                    <div class="goal top"></div>
-                    <div class="goal bottom"></div>
-                    <div class="corner-arc top-left"></div>
-                    <div class="corner-arc top-right"></div>
-                    <div class="corner-arc bottom-left"></div>
-                    <div class="corner-arc bottom-right"></div>
+            <div className="fields">
+                <div className="soccer-fieldA">
+                    <div className="halfway-line"></div>
+                    <div className="center-circle"></div>
+                    <div className="penalty-area top"></div>
+                    <div className="penalty-area bottom"></div>
+                    <div className="goal-area top"></div>
+                    <div className="goal-area bottom"></div>
+                    <div className="penalty-spot top"></div>
+                    <div className="penalty-spot bottom"></div>
+                    <div className="goal top"></div>
+                    <div className="goal bottom"></div>
+                    <div className="corner-arc top-left"></div>
+                    <div className="corner-arc top-right"></div>
+                    <div className="corner-arc bottom-left"></div>
+                    <div className="corner-arc bottom-right"></div>
 
                     <div className="player team-a" style={{ top: '3%', left: '46.5%' }}>GK</div>
                     <div className="player team-a" style={{ top: '30%', left: '10%' }}>DF</div>
@@ -50,21 +50,21 @@ export default function Field() {
                     <div className="player team-b" style={{ top: '38%', left: '66%' }}>FW</div>
                 </div>
 
-                <div class="soccer-fieldB">
-                    <div class="halfway-line"></div>
-                    <div class="center-circle"></div>
-                    <div class="penalty-area top"></div>
-                    <div class="penalty-area bottom"></div>
-                    <div class="goal-area top"></div>
-                    <div class="goal-area bottom"></div>
-                    <div class="penalty-spot top"></div>
-                    <div class="penalty-spot bottom"></div>
-                    <div class="goal top"></div>
-                    <div class="goal bottom"></div>
-                    <div class="corner-arc top-left"></div>
-                    <div class="corner-arc top-right"></div>
-                    <div class="corner-arc bottom-left"></div>
-                    <div class="corner-arc bottom-right"></div>
+                <div className="soccer-fieldB">
+                    <div className="halfway-line"></div>
+                    <div className="center-circle"></div>
+                    <div className="penalty-area top"></div>
+                    <div className="penalty-area bottom"></div>
+                    <div className="goal-area top"></div>
+                    <div className="goal-area bottom"></div>
+                    <div className="penalty-spot top"></div>
+                    <div className="penalty-spot bottom"></div>
+                    <div className="goal top"></div>
+                    <div className="goal bottom"></div>
+                    <div className="corner-arc top-left"></div>
+                    <div className="corner-arc top-right"></div>
+                    <div className="corner-arc bottom-left"></div>
+                    <div className="corner-arc bottom-right"></div>
 
                     <div className="player team-a" style={{ top: '3%', left: '46%' }}>GK</div>
                     <div className="player team-a" style={{ top: '30%', left: '10%' }}>DF</div>

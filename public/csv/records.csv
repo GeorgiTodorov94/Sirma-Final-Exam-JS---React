@@ -1,4 +1,4 @@
-ID,PlayerID,MatchID,fromMinutes,toMinutes,
+ID,PlayerID,MatchID,fromMinutes,toMinutes
 1,1,1,0,NULL
 2,2,1,0,90
 3,6,1,0,90

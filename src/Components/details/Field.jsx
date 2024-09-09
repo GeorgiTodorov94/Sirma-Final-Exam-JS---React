@@ -1,12 +1,20 @@
-import '../../styling/field.css'
+import '../../styling/field.css';
+import { useCSVData } from "../../utilities/parseScv";
 
 
-export default function Field() {
 
+export default function Field({
+    match,
+    groupedPlayersByTeam,
+}) {
+
+    const teams = useCSVData('teams.csv')
+    console.log(match)
+    console.log(groupedPlayersByTeam)
+    console.log(teams)
 
     return (
         <div className='fields-container'>
-
 
             <div className="fields">
                 <div className="soccer-fieldA">

@@ -3,17 +3,15 @@ import MatchCard from "../match-card/MatchCard"
 
 export default function Matches() {
 
-    // const matches = useCSVData('matches.csv')
     const teams = useCSVData('teams.csv');
     const matches = useCSVData('matches.csv');
     const players = useCSVData('players.csv');
     const records = useCSVData('records.csv');
-    // console.log(matches)
-    // console.log(teams)
+
 
     const clubsNames = {};
     teams.forEach(team => {
-        clubsNames[team.ID] = team.Name
+        clubsNames[team.ID] = team.Name;
     });
 
     const matchesWithClubNames = matches.map(match => {
@@ -28,12 +26,12 @@ export default function Matches() {
 
     const matchesInGroupStages = matchesWithClubNames.filter(match => {
         const matchDate = new Date(match.Date);
-        return matchDate <= groupStageEndDate
+        return matchDate <= groupStageEndDate;
     })
 
     const matchesAfterGroupStages = matchesWithClubNames.filter(match => {
         const matchDate = new Date(match.Date);
-        return matchDate > groupStageEndDate
+        return matchDate > groupStageEndDate;
     })
 
     const eighthFinalMatches = matchesWithClubNames.filter(match => {
@@ -41,7 +39,7 @@ export default function Matches() {
         const endDate = new Date('2024-07-02');
         const matchDate = new Date(match.Date);
         if (matchDate > startDate && matchDate <= endDate) {
-            return matchDate
+            return matchDate;
         }
     })
 
@@ -50,7 +48,7 @@ export default function Matches() {
         const endDate = new Date('2024-07-06');
         const matchDate = new Date(match.Date);
         if (matchDate > startDate && matchDate <= endDate) {
-            return matchDate
+            return matchDate;
         }
     })
 
@@ -59,11 +57,11 @@ export default function Matches() {
         const endDate = new Date('2024-07-11');
         const matchDate = new Date(match.Date);
         if (matchDate > startDate && matchDate <= endDate) {
-            return matchDate
+            return matchDate;
         }
     })
 
-    console.log(matchesWithClubNames)
+    console.log(matchesWithClubNames);
 
     // const grandFinal = matchesWithClubNames?.reduce((latest, currentMatch) => {
     //     const latestDate = new Date(latest.Date)
@@ -116,6 +114,7 @@ export default function Matches() {
                         </div>
                     )
                 }
+
             </div>
 
             <div className="group-stages-text-container">

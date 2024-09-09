@@ -1,4 +1,5 @@
 import '../../styling/header.css'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
     return (
@@ -6,10 +7,9 @@ export default function Header() {
             <h1>EURO Football Championship</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="/matches">Matches</a></li>
-                    <li><a href="#">Teams</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/matches">Matches</Link></li>
+                    <li><Link to="/brackets">Brackets</Link></li>
                 </ul>
             </nav>
         </div>

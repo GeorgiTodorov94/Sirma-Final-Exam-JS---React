@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const parseCSV = (text) => {
+const parseCSV = (text) => {
     const rows = text.trim().split('\n');
     const headers = rows[0].trim().split(',');
     return rows.slice(1).map(row => {
@@ -10,8 +10,8 @@ export const parseCSV = (text) => {
             object[header] = values[index];
             return object;
         }, {});
-    })
-}
+    });
+};
 
 export const useCSVData = (filename) => {
     const [data, setData] = useState([]);

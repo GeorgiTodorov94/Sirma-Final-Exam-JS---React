@@ -1,8 +1,9 @@
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
-import '../../styling/homepage.css'
-import '../../styling/footer.css'
+import '../../styling/homepage.css';
+import '../../styling/footer.css';
 export default function Homepage() {
+    
     return (
         <>
             <Header />

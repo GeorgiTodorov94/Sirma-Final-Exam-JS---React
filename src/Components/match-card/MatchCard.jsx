@@ -4,9 +4,9 @@ import "../../styling/matchCard.css"
 
 export default function MatchCard({ ...match }) {
 
-    const [ATeamScore, BTeamScore] = match.Score.split('-')
+    const [ATeamScore, BTeamScore] = match.Score.split('-');
     const navigate = useNavigate();
-    console.log(match)
+    // console.log(match);
 
 
     return (

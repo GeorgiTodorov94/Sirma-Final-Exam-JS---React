@@ -5,6 +5,7 @@ export default function Header() {
     return (
         <div class="container">
             <h1>EURO Football Championship</h1>
+
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>
@@ -13,5 +14,7 @@ export default function Header() {
                 </ul>
             </nav>
         </div>
+
     )
+    
 }

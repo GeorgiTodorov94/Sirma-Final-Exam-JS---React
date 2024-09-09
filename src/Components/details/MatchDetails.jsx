@@ -3,14 +3,12 @@ import { useCSVData } from "../../utilities/parseScv";
 import { useParams } from "react-router";
 
 import Field from "./Field";
+import { useData } from "../../utilities/dataContext";
 
 
 export default function MatchDetails() {
     const matchID = Object.values(useParams())[0];
-
-    const players = useCSVData('players.csv');
-    const matches = useCSVData('matches.csv');
-    const teams = useCSVData('teams.csv');
+    const { players, matches, teams } = useData()
 
     // A random idea ->>>>> \n
     // Instead of calling useCSVData each time in every component I have to try to use createContext and save the data in the local storage
@@ -18,6 +16,7 @@ export default function MatchDetails() {
     // I need to start coding this idea in parseScv.js - export the function that will handle my idea. TO BE CONTINUED
 
     const [groupedPlayersByTeam, setGroupedPlayersByTeam] = useState([]);
+
     const [currentMatch, setCurrentMatch] = useState({
         ID: '',
         ATeamID: '',
@@ -31,7 +30,6 @@ export default function MatchDetails() {
             const currentlySelectedMatch = matches.find(m => m.ID === matchID)
             setCurrentMatch(Object.assign({}, currentMatch, currentlySelectedMatch));
             declarePlayersAndTeams();
-            console.log(currentMatch);
         })()
     }, [matches, teams]);
 
@@ -51,7 +49,6 @@ export default function MatchDetails() {
     function declarePlayersAndTeams() {
         let playersByTeams = groupingPlayersByTeamID(players);
         setGroupedPlayersByTeam(Object.values(playersByTeams));
-        console.log(groupedPlayersByTeam)
         return groupedPlayersByTeam;
     };
 
@@ -59,7 +56,7 @@ export default function MatchDetails() {
         <>
             <h1> Match Details </h1>
 
-            <Field match={currentMatch} key={currentMatch.ID} groupedPlayersByTeam={groupedPlayersByTeam} />
+            <Field teams={teams} match={currentMatch} key={currentMatch.ID} groupedPlayersByTeam={groupedPlayersByTeam} />
 
         </>
     );

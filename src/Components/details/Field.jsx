@@ -1,21 +1,58 @@
-import '../../styling/field.css';
+import { useParams } from 'react-router';
 import { useCSVData } from "../../utilities/parseScv";
+import { useEffect, useState } from 'react';
 
-
+import '../../styling/field.css';
 
 export default function Field({
     match,
     groupedPlayersByTeam,
 }) {
 
-    const teams = useCSVData('teams.csv')
-    console.log(match)
-    console.log(groupedPlayersByTeam)
-    console.log(teams)
+    const [currentTeams, setCurrentTeams] = useState({})
+    const matchID = Object.values(useParams())[0];
+    const teams = useCSVData('teams.csv');
+
+    useEffect(() => {
+        if (teams.length && match) {
+            setCurrentTeams(prev => ({
+                ...prev,
+                teams: teams,
+                currentMatch: match,
+                clubPlayers: groupedPlayersByTeam
+            }));
+        };
+    }, [teams, match, groupedPlayersByTeam]);
+
+
+    if (!currentTeams.length || !currentMatch || !clubPlayers) {
+        return <div>Loading...</div>;
+    }
+
+
+    const getMatchTeams = () => {
+        console.log(currentTeams)
+        const teamA = currentTeams.find(t => t.ID === currentMatch.ATeamID);
+        const teamB = currentTeams.find(t => t.ID === currentMatch.BTeamID);
+
+
+        const teamAPlayers = clubPlayers[teamA?.ID] || 'Undefined';
+        console.log(teamAPlayers)
+        const teamBPlayers = clubPlayers[teamB?.ID] || 'Undefined';
+
+        return {
+            teamA,
+            teamAPlayers,
+            teamB,
+            teamBPlayers
+        };
+    };
+
+    const matchDetails = getMatchTeams();
+    console.log(matchDetails)
 
     return (
         <div className='fields-container'>
-
             <div className="fields">
                 <div className="soccer-fieldA">
                     <div className="halfway-line"></div>

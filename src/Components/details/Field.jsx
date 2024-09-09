@@ -26,7 +26,6 @@ export default function Field({
         }));
     }, [match, teams.data, matches.data, players.data, matchID]);
 
-    console.log(currentData)
 
     if (!currentData.teams?.length || !currentData.currentMatch || !currentData.clubPlayers) {
         return <div>Loading...</div>;
@@ -55,12 +54,14 @@ export default function Field({
     };
 
     const matchDetails = getMatchTeams();
-    console.log(matchDetails.teamA.Name)
-    console.log(matchDetails.teamB.Name)
+    // console.log(matchDetails.teamA.Name)
+    // console.log(matchDetails.teamB.Name)
+    const goalKeeperA = matchDetails.teamAPlayers.find(m => m.Position == "GK")
+    const goalKeeperB = matchDetails.teamBPlayers.find(m => m.Position == "GK")
 
     return (
         <div className='fields-container'>
-            {/* <div className='team-a-name'>{matchDetails.teamA.Name}</div> */}
+            <div className='team-a-name'>{matchDetails.teamA.Name}</div>
             <div className="fields">
                 <div className="soccer-fieldA">
                     <div className="halfway-line"></div>
@@ -78,7 +79,7 @@ export default function Field({
                     <div className="corner-arc bottom-left"></div>
                     <div className="corner-arc bottom-right"></div>
 
-                    <div className="player team-a" style={{ top: '3%', left: '46.5%' }}>GK</div>
+                    <div className="player team-a" style={{ top: '3%', left: '46.5%' }}>{goalKeeperA.FullName}</div>
                     <div className="player team-a" style={{ top: '30%', left: '10%' }}>DF</div>
                     <div className="player team-a" style={{ top: '30%', left: '35%' }}>DF</div>
                     <div className="player team-a" style={{ top: '30%', left: '60%' }}>DF</div>
@@ -102,7 +103,7 @@ export default function Field({
                     <div className="player team-b" style={{ top: '38%', left: '47%' }}>FW</div>
                     <div className="player team-b" style={{ top: '38%', left: '66%' }}>FW</div>
                 </div>
-                {/* <div className='team-b-name'>{matchDetails.teamB.Name}</div> */}
+                <div className='team-b-name'>{matchDetails.teamB.Name}</div>
                 <div className="soccer-fieldB">
                     <div className="halfway-line"></div>
                     <div className="center-circle"></div>
@@ -119,7 +120,7 @@ export default function Field({
                     <div className="corner-arc bottom-left"></div>
                     <div className="corner-arc bottom-right"></div>
 
-                    <div className="player team-a" style={{ top: '3%', left: '46%' }}>GK</div>
+                    <div className="player team-a" style={{ top: '3%', left: '46%' }}>{goalKeeperB.FullName}</div>
                     <div className="player team-a" style={{ top: '30%', left: '10%' }}>DF</div>
                     <div className="player team-a" style={{ top: '30%', left: '35%' }}>DF</div>
                     <div className="player team-a" style={{ top: '30%', left: '60%' }}>DF</div>

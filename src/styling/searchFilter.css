@@ -1,0 +1,24 @@
+.search-filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+.search-filter-container input,
+.search-filter-container select {
+    padding: 10px;
+    font-size: 1em;
+}
+
+.search-filter-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-filter-container button:hover {
+    background-color: #0056b3;
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useData } from "../../utilities/dataContext";
+import '../../styling/searchFilter.css'
 
 export default function SearchFilter() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -14,10 +15,12 @@ export default function SearchFilter() {
             const matchesSearchTerm =
                 teamA?.Name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 teamB?.Name.toLowerCase().includes(searchTerm.toLowerCase());
-
-            // const matchesStage = stageFilter === '' || object[group].toLowerCase() || stageFilter.toLowerCase()
+            // This is basic Idea of a search filter
             //  need to figure this out... probbly going to export an object with the groups and their respective teams
             // and render them upon click or navigate to the group dynamically with same as in Finals.jsx
+
+            // const matchesStage = stageFilter === '' || object[group].toLowerCase() || stageFilter.toLowerCase()
+            // Continue with this in an hour.
 
             return matchesSearchTerm;
         });

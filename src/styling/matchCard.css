@@ -1,7 +1,7 @@
 .match-card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-color: #fff;
     border: 1px solid #ccc;
     padding: 20px;
@@ -9,6 +9,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
     border-radius: 10px;
+    box-sizing: border-box;
 }
 
 .team {
@@ -31,6 +32,11 @@
 .team-info p {
     font-size: 0.9em;
     color: #777;
+}
+
+.team-info {
+    font-size: 1.1em;
+    color: #555;
 }
 
 .match-info {
@@ -68,6 +74,8 @@
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: lightgreen;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://media.istockphoto.com/id/1680403652/photo/soccer-stadium-with-a-colorful-ball-in-the-middle.jpg?s=612x612&w=0&k=20&c=ZfonEbuAKTV5rGz88JSCR98TtferaH0PH2cxmCh_Vds=') no-repeat center center / cover;
+
 }
 
 .team-info p {

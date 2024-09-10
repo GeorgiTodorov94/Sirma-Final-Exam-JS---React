@@ -1,7 +1,7 @@
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
 import '../../styling/homepage.css';
-import '../../styling/footer.css';
+
+import { Link } from "react-router-dom";
+
 export default function Homepage() {
 
     return (
@@ -13,7 +13,7 @@ export default function Homepage() {
                         <p>
                             Stay updated with all the latest match results, statistics, and team standings.
                         </p>
-                        <a href="#" class="cta-button">Get Started</a>
+                        <Link to="/brackets" class="cta-button">Get Started</Link>
                     </div>
                 </section>
             </main>

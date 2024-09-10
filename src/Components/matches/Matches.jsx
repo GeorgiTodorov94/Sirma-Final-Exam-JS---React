@@ -1,186 +1,88 @@
-import { useCSVData } from "../../utilities/parseScv"
+import { useEffect, useState } from "react";
+import { useData } from "../../utilities/dataContext";
 import MatchCard from "../match-card/MatchCard"
 
 export default function Matches() {
 
-    const teams = useCSVData('teams.csv');
-    const matches = useCSVData('matches.csv');
-    const players = useCSVData('players.csv');
-    const records = useCSVData('records.csv');
+    const { teams, matches } = useData()
+    const [currentTeams, setCurrentTeams] = useState([]);
+    const [currentMatches, setCurrentMatches] = useState([]);
+    useEffect(() => {
+        setCurrentTeams(teams.data);
+        setCurrentMatches(matches.data)
+        // console.log(currentMatches)
+        // console.log(currentTeams)
+    }, [teams, matches])
 
-    const clubsNames = {};
-    teams.data.forEach(team => {
-        clubsNames[team.ID] = team.Name;
-    });
-
-    const matchesWithClubNames = matches.data.map(match => {
-        return {
-            ...match,
-            ATeamName: clubsNames[match.ATeamID] || 'Unknown Club',
-            BTeamName: clubsNames[match.BTeamID] || 'Unknown Club'
-        };
-    });
-
-    const groupStageEndDate = new Date('2024-06-26');
-
-    const matchesInGroupStages = matchesWithClubNames.filter(match => {
-        const matchDate = new Date(match.Date);
-        return matchDate <= groupStageEndDate;
-    })
-
-    const matchesAfterGroupStages = matchesWithClubNames.filter(match => {
-        const matchDate = new Date(match.Date);
-        return matchDate > groupStageEndDate;
-    })
-
-    const eighthFinalMatches = matchesWithClubNames.filter(match => {
-        const startDate = new Date('2024-06-28');
-        const endDate = new Date('2024-07-02');
-        const matchDate = new Date(match.Date);
-        if (matchDate > startDate && matchDate <= endDate) {
-            return matchDate;
-        }
-    })
-
-    const quarterFinals = matchesWithClubNames.filter(match => {
-        const startDate = new Date('2024-07-04');
-        const endDate = new Date('2024-07-06');
-        const matchDate = new Date(match.Date);
-        if (matchDate > startDate && matchDate <= endDate) {
-            return matchDate;
-        }
-    })
-
-    const semiFinals = matchesWithClubNames.filter(match => {
-        const startDate = new Date('2024-07-08');
-        const endDate = new Date('2024-07-11');
-        const matchDate = new Date(match.Date);
-        if (matchDate > startDate && matchDate <= endDate) {
-            return matchDate;
-        }
-    })
-
-    console.log(matchesWithClubNames);
-
-    // const grandFinal = matchesWithClubNames?.reduce((latest, currentMatch) => {
-    //     const latestDate = new Date(latest.Date)
-    //     const currentDate = new Date(currentMatch.Date)
-
-    //     return currentDate > latestDate ? currentMatch : latest
-    // })
+    const matchesObject = {
+        groupA: [],
+        groupB: [],
+        groupC: [],
+        groupD: [],
+        groupE: [],
+        groupF: [],
+    }
 
 
+    const findMatchesByGroup = (groupName, teams, matches) => {
+        const groupTeams = teams.filter(team => team.Group === groupName);
 
+        const groupTeamIDs = groupTeams.map(team => team.ID);
+
+        const groupMatches = matches.filter(match =>
+            groupTeamIDs.includes(match.ATeamID) && groupTeamIDs.includes(match.BTeamID)
+        );
+
+        return groupMatches.map(match => {
+            const teamA = groupTeams.find(team => team.ID === match.ATeamID);
+            const teamB = groupTeams.find(team => team.ID === match.BTeamID);
+
+            return {
+                MatchID: match.ID,
+                Date: match.Date,
+                Score: match.Score,
+                TeamA: teamA ? teamA.Name : "Unknown Team",
+                TeamB: teamB ? teamB.Name : "Unknown Team",
+                ATeamID: teamA.ID,
+                BTeamID: teamB.ID
+            };
+        });
+    };
+
+    const groupMatches = (teams, matches) => {
+        const groups = [...new Set(teams?.map(team => team.Group))];
+
+        const matchesByGroup = {};
+
+        groups.forEach(group => {
+            matchesByGroup[group] = findMatchesByGroup(group, teams, matches);
+        });
+
+        return matchesByGroup;
+    };
+
+    const groupedMatches = groupMatches(currentTeams, currentMatches);
+    const groupKeys = Object.keys(groupedMatches);
+    console.log(groupedMatches);
     return (
         <>
-            <div className="group-stages-text-container">
-                Group Stages
-            </div>
-
+            <h1 style={{ color: 'black' }}>Brackets</h1>
             <div className="match-card-container">
-
-                {matchesInGroupStages.length > 0 &&
-                    (
-                        matchesInGroupStages.map(match => <MatchCard key={match.ID} {...match} />)
-                    )
-                }
-
-                {matchesInGroupStages.length < 0 &&
-                    (
-                        <div>
-                            There is no data available at this moment.
+                {groupKeys.map((group) => (
+                    <div key={group} className="group-stage">
+                        <h3 style={{ color: 'black', fontSize: '30px' }}>Group {group}</h3>
+                        <div className="group-stage-matches">
+                            {groupedMatches[group].map(match => (
+                                <MatchCard
+                                    key={match.MatchID}
+                                    {...match}
+                                />
+                            ))}
                         </div>
-                    )
-                }
+                    </div>
+                ))}
             </div>
-
-            <div className="group-stages-text-container">
-                Eight-Finals Stage
-            </div>
-
-            <div className="match-card-container">
-
-                {eighthFinalMatches.length > 0 &&
-                    (
-                        eighthFinalMatches.map(match => <MatchCard key={match.ID} {...match} />)
-                    )
-                }
-
-                {eighthFinalMatches.length < 0 &&
-                    (
-                        <div>
-                            There is no data available at this moment.
-                        </div>
-                    )
-                }
-
-            </div>
-
-            <div className="group-stages-text-container">
-                Quarter-Finals Stage
-            </div>
-
-            <div className="match-card-container">
-
-                {quarterFinals.length > 0 &&
-                    (
-                        quarterFinals.map(match => <MatchCard key={match.ID} {...match} />)
-                    )
-                }
-
-                {quarterFinals.length < 0 &&
-                    (
-                        <div>
-                            There is no data available at this moment.
-                        </div>
-                    )
-                }
-            </div>
-
-            <div className="group-stages-text-container">
-                Semi-Finals Stage
-            </div>
-
-            <div className="match-card-container">
-
-                {semiFinals.length > 0 &&
-                    (
-                        semiFinals.map(match => <MatchCard key={match.ID} {...match} />)
-                    )
-                }
-
-                {semiFinals.length < 0 &&
-                    (
-                        <div>
-                            There is no data available at this moment.
-                        </div>
-                    )
-                }
-            </div>
-
-            <div className="group-stages-text-container">
-                Grand Final
-            </div>
-
-            <div className="match-card-container">
-                {/* <MatchCard key={grandFinal.ID} match={grandFinal} /> */}
-
-                {/* // {grandFinal.length > 0 &&
-                //     (
-                //         grandFinal.map(grandFinal => <MatchCard key={grandFinal.ID} match={grandFinal} />)
-                //     )
-                // }
-
-                // {grandFinal.length < 0 &&
-                //     (
-                //         <div>
-                //             There is no data available at this moment.
-                //         </div>
-                //     )
-                // } */}
-            </div>
-
-
         </>
-    );
+    )
 }
+

@@ -8,9 +8,7 @@ import TeamDetails from './Components/details/TeamDetails'
 import FetchAndProvideData from './utilities/dataContext'
 import Header from './Components/header/Header'
 import Footer from './Components/footer/Footer'
-
 function App() {
-
     return (
 
         <FetchAndProvideData>

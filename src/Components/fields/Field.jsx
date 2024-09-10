@@ -6,6 +6,7 @@ import '../../styling/field.css';
 import { useData } from '../../utilities/dataContext';
 import FieldA from './FieldA';
 import FieldB from './FieldB';
+import MatchDetails from '../details/MatchDetails';
 
 export default function Field({
     match,
@@ -59,7 +60,6 @@ export default function Field({
     console.log(matchDetails.teamA.ID)
     console.log(matchDetails.teamB.ID)
     // console.log(matchDetails.teamB.Name)
-
 
     return (
         <div className='fields-container'>

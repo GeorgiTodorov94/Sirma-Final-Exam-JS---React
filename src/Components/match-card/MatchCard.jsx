@@ -3,19 +3,18 @@ import { useNavigate } from "react-router"
 import "../../styling/matchCard.css"
 
 export default function MatchCard({ ...match }) {
-
+    console.log(match)
     const [ATeamScore, BTeamScore] = match.Score.split('-');
     const navigate = useNavigate();
     // console.log(match);
 
 
     return (
-
         <div className="match-card">
             <div className="team team1">
-                <img src='' />
+                <img src="" />
                 <div className="team-info">
-                    <h3>{match.ATeamName}</h3>
+                    <h3>{match.TeamA}</h3>
                     <button onClick={() => navigate(`/team-details/${match.ATeamID}`)}>Team Details</button>
                 </div>
             </div>
@@ -28,16 +27,16 @@ export default function MatchCard({ ...match }) {
                 <div className="score">
                     <span>{ATeamScore}</span> : <span>{BTeamScore}</span>
                 </div>
-                <button className="home-label" onClick={() => navigate(`/match-details/${match.ID}`)}>Match Details</button>
+                <button className="home-label" onClick={() => navigate(`/match-details/${match.MatchID}`)}>Match Details</button>
             </div>
 
             <div className="team team2">
                 <img src="" />
                 <div className="team-info">
-                    <h3>{match.BTeamName}</h3>
+                    <h3>{match.TeamB}</h3>
                     <button onClick={() => navigate(`/team-details/${match.BTeamID}`)}>Team Details</button>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

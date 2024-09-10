@@ -1,13 +1,15 @@
 import '../../styling/homepage.css';
 
 import { Link } from "react-router-dom";
-
+import SearchFilter from '../search-filter/SearchFilter';
 export default function Homepage() {
 
     return (
         <>
             <main className="home">
+
                 <section className="welcome">
+                    <SearchFilter />
                     <div className="container">
                         <h2>Welcome to the EUROPEAN Football Championship Visualizer</h2>
                         <p style={{ fontSize: '35px' }}>

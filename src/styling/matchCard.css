@@ -6,8 +6,9 @@
     border: 1px solid #ccc;
     padding: 20px;
     width: 400px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin: 5px 5px 5px 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    border-radius: 10px;
 }
 
 .team {
@@ -36,6 +37,12 @@
     text-align: center;
 }
 
+.score {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
 .match-result {
     font-size: 0.9em;
     font-weight: bold;
@@ -44,12 +51,6 @@
     border-radius: 5px;
     margin-bottom: 5px;
 }
-
-/* 
-.match-result.win {
-    background-color: #28a745;
-    color: white;
-} */
 
 .score {
     font-size: 2em;
@@ -66,6 +67,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: lightgreen;
 }
 
 .team-info p {
@@ -76,4 +78,6 @@
     padding: 20px;
     font-size: 25px;
     font-weight: 700;
+    display: flex;
+    justify-content: center;
 }

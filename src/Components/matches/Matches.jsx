@@ -63,7 +63,11 @@ export default function Matches() {
 
     const groupedMatches = groupMatches(currentTeams, currentMatches);
     const groupKeys = Object.keys(groupedMatches);
-    console.log(groupedMatches);
+
+    const finalMatches = currentMatches.slice(36);
+    const eightFinalMatches = finalMatches.slice(0, 8);
+    const quarterFinalMatches = eightFinalMatches.slice(0, 4);
+    console.log(quarterFinalMatches)
     return (
         <>
             <h1 style={{ color: 'black' }}>Brackets</h1>

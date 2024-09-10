@@ -7,9 +7,8 @@ export default function Header() {
             <nav>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/matches">Matches</Link></li>
-                    <li><Link to="/brackets">Brackets</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/matches">Group Brackets</Link></li>
+                    <li><Link to="/finals">Finals</Link></li>
                 </ul>
             </nav>
         </header>

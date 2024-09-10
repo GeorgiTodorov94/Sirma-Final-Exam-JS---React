@@ -6,7 +6,6 @@ import '../../styling/field.css';
 import { useData } from '../../utilities/dataContext';
 import FieldA from './FieldA';
 import FieldB from './FieldB';
-import MatchDetails from '../details/MatchDetails';
 
 export default function Field({
     match,

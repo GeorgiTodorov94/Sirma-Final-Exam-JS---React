@@ -8,6 +8,7 @@ import TeamDetails from './Components/details/TeamDetails'
 import FetchAndProvideData from './utilities/dataContext'
 import Header from './Components/header/Header'
 import Footer from './Components/footer/Footer'
+import Finals from './Components/finals/Finals'
 function App() {
     return (
 
@@ -18,6 +19,7 @@ function App() {
                 <Route path='/matches' element={<Matches />}></Route>
                 <Route path='/team-details/:teamID' element={<TeamDetails />}></Route>
                 <Route path='/match-details/:matchID' element={<MatchDetails />}></Route>
+                <Route path='/finals' element={<Finals />}></Route>
             </Routes >
             <Footer />
         </FetchAndProvideData>

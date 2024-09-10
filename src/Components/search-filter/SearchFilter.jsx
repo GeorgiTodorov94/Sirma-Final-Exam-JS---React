@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
 import { useData } from "../../utilities/dataContext";
 import '../../styling/searchFilter.css'
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
-export default function SearchFilter() {
+export default function SearchFilter({ allMatches, allTeams, onFilter }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [stageFilter, setStageFilter] = useState('');
     const { teams, matches } = useData();
     const navigate = useNavigate()
+    const matchID = useParams();
+    console.log(matchID)
 
     const handleSearch = () => {
-        const filteredMatches = matches.data.filter((match) => {
-            const teamA = teams.data.find((team) => team.ID === match.ATeamID);
-            const teamB = teams.data.find((team) => team.ID === match.BTeamID);
+        const filteredMatches = allMatches.filter((match) => {
+            const teamA = allTeams.find((team) => team.ID === match.ATeamID);
+            const teamB = allTeams.find((team) => team.ID === match.BTeamID);
 
             // need to create a useForm Hook and create a better Form for searching
 
@@ -30,11 +32,12 @@ export default function SearchFilter() {
             navigate(`/match-details/${match.ID}`)
             return matchesSearchTerm & matchesStage;
         });
+        onFilter(filteredMatches);
     }
     useEffect(() => {
         console.log(searchTerm);
-        console.log(stageFilter);
-    }, [searchTerm, stageFilter]);
+        // console.log(stageFilter);
+    }, [searchTerm]);
 
 
     return (

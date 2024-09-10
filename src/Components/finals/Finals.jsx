@@ -1,5 +1,6 @@
 import { useData } from "../../utilities/dataContext"
 import FinalCard from "../match-card/FinalCard";
+import SemiFinalsMatch from "./SemiFinalsMatch";
 
 export default function Finals() {
     const { teams, matches } = useData();

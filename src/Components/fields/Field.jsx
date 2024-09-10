@@ -27,6 +27,7 @@ export default function Field({
             clubPlayers: groupedPlayersByTeamID
         }));
     }, [match, teams.data, matches.data, players.data, matchID]);
+    // console.log(match)
 
 
     if (!currentData.teams?.length || !currentData.currentMatch || !currentData.clubPlayers) {
@@ -58,6 +59,7 @@ export default function Field({
     const matchDetails = getMatchTeams();
     console.log(matchDetails.teamA.ID)
     console.log(matchDetails.teamB.ID)
+    // console.log(matchDetails.teamBPlayers)
     // console.log(matchDetails.teamB.Name)
 
     return (

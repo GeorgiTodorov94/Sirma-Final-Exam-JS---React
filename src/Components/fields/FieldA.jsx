@@ -4,6 +4,7 @@ export default function FieldA({
     match
 }) {
     const playersArr = players.map((p) => console.log(Object.values(p).join(',')))
+    // console.log(players)
 
     return (
         // To create the roster Component and CSS 

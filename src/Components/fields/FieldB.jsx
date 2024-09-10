@@ -7,8 +7,8 @@ export default function FieldB({
             <div className='team-a-name' style={{ left: '50%', position: 'absolute' }}>
                 <span className="teamName" style={{ color: 'red', padding: '5px' }}>{team.Name}</span>
                 {players.length > 0 && (
-                    players.map(p => <div className="roster-container" >
-                        <div className="player-info">{Object.values(p).slice(2)}</div>
+                    players.map(p => <div className="roster-container" key={p.ID} >
+                        <div className="player-info" style={{ color: "white" }}>{Object.values(p).slice(2).join('    ')}</div>
                     </div>)
                 )}
             </div>

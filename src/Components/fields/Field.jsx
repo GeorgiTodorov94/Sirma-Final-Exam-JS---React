@@ -66,7 +66,6 @@ export default function Field({
             <div className="fields">
                 <FieldA key={matchDetails.teamA.ID} team={matchDetails.teamA} players={matchDetails.teamAPlayers} match={match} />
                 <FieldB key={matchDetails.teamB.ID} team={matchDetails.teamB} players={matchDetails.teamBPlayers} match={match} />
-
             </div>
 
         </div>

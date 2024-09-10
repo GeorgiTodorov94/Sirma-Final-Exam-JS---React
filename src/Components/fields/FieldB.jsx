@@ -4,11 +4,11 @@ export default function FieldB({
 }) {
     return (
         <>
-            <div className='team-a-name' style={{ left: '50%', position: 'absolute' }}>
+            <div className='team-b-name' style={{ left: '64.5%', position: 'absolute' }}>
                 <span className="teamName" style={{ color: 'red', padding: '5px' }}>{team.Name}</span>
                 {players.length > 0 && (
-                    players.map(p => <div className="roster-container" key={p.ID} >
-                        <div className="player-info" style={{ color: "white" }}>{Object.values(p).slice(2, 4).join('    ')}</div>
+                    players.slice(0, 11).map(p => <div className="roster-container" key={p.ID} >
+                        <div className="player-info" style={{ color: "black" }}>{Object.values(p).slice(2, 4).join('    ')}</div>
                     </div>)
                 )}
             </div>

@@ -3,10 +3,9 @@ import Footer from "../footer/Footer";
 import '../../styling/homepage.css';
 import '../../styling/footer.css';
 export default function Homepage() {
-    
+
     return (
         <>
-            <Header />
             <main class="home">
                 <section class="welcome">
                     <div class="container">
@@ -18,7 +17,6 @@ export default function Homepage() {
                     </div>
                 </section>
             </main>
-            <Footer />
         </>
     );
 }

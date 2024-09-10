@@ -3,18 +3,16 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
     return (
-        <div class="container">
-            <h1>EURO Football Championship</h1>
-
+        <header>
             <nav>
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/matches">Matches</Link></li>
-                    <li><Link to="/brackets">Brackets</Link></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/matches">Matches</a></li>
+                    <li><a href="/teams">Teams</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
-        </div>
+        </header>
+    );
 
-    )
-    
 }

@@ -12,6 +12,7 @@
     justify-content: space-between;
     width: auto;
     flex-wrap: wrap;
+    background-color: lightgreen;
 }
 
 .soccer-fieldA {
@@ -207,4 +208,31 @@ h1 {
 
 .team-b {
     background-color: blue;
+}
+
+.team-a-name,
+.team-b-name {
+    border: 3px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-top: 50px;
+}
+
+.player-info {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.teamName {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3fr);
+}
+
+.match-details-header {
+    display: flex;
+    justify-content: center;
+    background-color: lightgreen;
 }

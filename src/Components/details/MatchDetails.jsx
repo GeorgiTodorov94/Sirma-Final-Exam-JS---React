@@ -73,7 +73,7 @@ export default function MatchDetails() {
 
     return (
         <>
-            <h1> Match Details </h1>
+            <h1 className="match-details-header"> Match Details </h1>
 
             <Field match={currentMatch} key={currentMatch.ID} groupedPlayersByTeamID={groupedPlayersByTeamID} />
 

@@ -18,11 +18,14 @@ export default function Finals() {
     const teamAName = teams.data.find(t => t.ID === teamAID);
     const teamBName = teams.data.find(t => t.ID === teamBID);
 
+    const semiFinalMatches = matches?.data?.slice(-9, -1);
+    // to continue with the semifinals and the quarterFinals
+    // will create brackets same as Group Stages for them in the Finals component
+
 
     return (
         <>
             <FinalCard teamAName={teamAName.Name} teamBName={teamBName.Name}{...finalMatch} />
-
         </>
     )
 }

@@ -46,7 +46,7 @@ export default function FieldA({
                 <div className="player team-a" style={{ top: '62%', left: '48%' }}>FW</div>
                 <div className="player team-a" style={{ top: '62%', left: '78%' }}>FW</div>
 
-                <div className="player team-b" style={{ top: '93%', left: '47.5%' }}>GK</div>
+                {/* <div className="player team-b" style={{ top: '93%', left: '47.5%' }}>GK</div>
                 <div className="player team-b" style={{ top: '70%', left: '10%' }}>DF</div>
                 <div className="player team-b" style={{ top: '70%', left: '35%' }}>DF</div>
                 <div className="player team-b" style={{ top: '70%', left: '60%' }}>DF</div>
@@ -56,7 +56,7 @@ export default function FieldA({
                 <div className="player team-b" style={{ top: '55%', left: '63%' }}>MD</div>
                 <div className="player team-b" style={{ top: '38%', left: '27%' }}>FW</div>
                 <div className="player team-b" style={{ top: '38%', left: '47%' }}>FW</div>
-                <div className="player team-b" style={{ top: '38%', left: '66%' }}>FW</div>
+                <div className="player team-b" style={{ top: '38%', left: '66%' }}>FW</div> */}
             </div>
         </>
     )

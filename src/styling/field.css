@@ -219,6 +219,8 @@ h1 {
     flex-direction: column;
     box-sizing: border-box;
     margin-top: 50px;
+    width: 232px;
+    height: 340px;
 }
 
 .player-info {

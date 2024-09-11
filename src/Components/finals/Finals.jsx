@@ -53,11 +53,11 @@ export default function Finals() {
     return (
         <>
             <h1 style={{ color: 'black' }}>Finals</h1>
-            <div className="finals-card-container">
+            <div className="match-card-container">
                 {groupKeys.map((group) => (
-                    <div key={group} className="finals-stage">
+                    <div key={group} className="group-stage">
                         <h3 style={{ color: 'black', fontSize: '30px' }}>{group}</h3>
-                        <div className="finals-stage-matches">
+                        <div className="group-stage-matches">
                             {finalsArr[group].map(match => (
                                 <MatchCard
                                     key={match.ID}

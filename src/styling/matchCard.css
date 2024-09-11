@@ -64,6 +64,7 @@
     margin: 5px 0;
 }
 
+
 .home-label {
     font-size: 0.8em;
     color: #777;
@@ -72,20 +73,18 @@
 .match-card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: lightgreen;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://media.istockphoto.com/id/1680403652/photo/soccer-stadium-with-a-colorful-ball-in-the-middle.jpg?s=612x612&w=0&k=20&c=ZfonEbuAKTV5rGz88JSCR98TtferaH0PH2cxmCh_Vds=') no-repeat center center / cover;
-
 }
 
 .team-info p {
     margin-top: 10px;
 }
 
-.group-stages-text-container {
-    padding: 20px;
-    font-size: 25px;
-    font-weight: 700;
+.group-stage-matches {
     display: flex;
-    justify-content: center;
+    width: 90vw;
+    flex-wrap: wrap;
+    justify-content: space-evenly
 }

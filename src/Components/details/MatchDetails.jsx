@@ -3,7 +3,6 @@ import { useCSVData } from "../../utilities/parseScv";
 import { useParams } from "react-router";
 
 import Field from "../fields/Field";
-import { useData } from "../../utilities/dataContext";
 
 
 export default function MatchDetails() {
@@ -56,6 +55,7 @@ export default function MatchDetails() {
         if (!groupedPlayersByTeamID.length) {
             return <div>Loading...</div>
         }
+
         // console.log(groupedPlayersByTeamID);
         return groupedPlayersByTeamID;
     };

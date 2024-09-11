@@ -1,18 +1,21 @@
-.match-card {
+.field-match-card {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     background-color: #fff;
     border: 1px solid #ccc;
-    padding: 20px;
-    width: 450px;
+    width: 400px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 10px;
     border-radius: 10px;
     box-sizing: border-box;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 36%;
 }
 
-.team {
+.fieldTeam {
     display: flex;
     align-items: center;
     text-align: center;
@@ -24,32 +27,32 @@
     margin-right: 10px;
 }
 
-.team-info h3 {
+.field-team-info h3 {
     font-size: 1.2em;
     margin: 0;
 }
 
-.team-info p {
+.field-team-info p {
     font-size: 0.9em;
     color: #777;
 }
 
-.team-info {
+.field-team-info {
     font-size: 1.1em;
     color: #555;
 }
 
-.match-info {
+.field-match-info {
     text-align: center;
 }
 
-.score {
+.field-score {
     font-size: 1.5em;
     font-weight: bold;
     color: #333;
 }
 
-.match-result {
+.field-match-result {
     font-size: 0.9em;
     font-weight: bold;
     background-color: #ccc;
@@ -58,19 +61,19 @@
     margin-bottom: 5px;
 }
 
-.score {
+.field-score {
     font-size: 2em;
     font-weight: bold;
     margin: 5px 0;
 }
 
 
-.home-label {
+.field-home-label {
     font-size: 0.8em;
     color: #777;
 }
 
-.match-card-container {
+.field-match-card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;

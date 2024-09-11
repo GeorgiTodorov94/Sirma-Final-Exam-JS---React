@@ -7,13 +7,13 @@ const parseCSV = (text) => {
     return rows.slice(1).map(row => {
         // console.log(row.trim())
         const values = row.trim().split(',');
-
+        
         return headers.reduce((object, header, index) => {
             object[header] = values[index];
             return object;
         }, {});
     });
-};
+}; 
 
 export const useCSVData = (filename) => {
     const [data, setData] = useState(() => {

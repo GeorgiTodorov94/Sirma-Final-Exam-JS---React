@@ -7,7 +7,7 @@ export default function MatchFieldCard({
     ...match
 }) {
     const navigate = useNavigate();
-    console.log(team)
+    // console.log(team)
     const [ATeamScore, BTeamScore] = match.match.Score.split('-');
 
     return (

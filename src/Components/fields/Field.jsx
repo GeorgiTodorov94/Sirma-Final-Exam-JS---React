@@ -13,10 +13,12 @@ export default function Field({
     groupedPlayersByTeamID,
 }) {
 
+
     const [currentData, setCurrentData] = useState({})
     const matchID = Object.values(useParams())[0];
     const { teams, players, matches } = useData();
     // console.log(teams.data)
+    // console.log(groupedPlayersByTeamID)
     // console.log(players.data)
     // console.log(matches.data)
 
@@ -29,7 +31,7 @@ export default function Field({
             // Need to implement better logic in getting clubPlayers.
         }));
     }, [match, teams.data, matches.data, players.data, matchID]);
-    console.log(currentData.clubPlayers)
+    // console.log(currentData.clubPlayers)
     // I need to clean most of the components if i have time 
     // I will start from here. This Logic here is taking all the info 
     // dynamically about the current match and converts it into one object with

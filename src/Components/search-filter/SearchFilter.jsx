@@ -1,15 +1,15 @@
+import '../../styling/searchFilter.css'
+
 import { useEffect, useState } from "react";
 import { useData } from "../../utilities/dataContext";
-import '../../styling/searchFilter.css'
 import { useNavigate, useParams } from "react-router";
 
 export default function SearchFilter({ allMatches, allTeams, onFilter }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [stageFilter, setStageFilter] = useState('');
     const { teams, matches } = useData();
-    const navigate = useNavigate()
-    const matchID = useParams();
-    console.log(matchID)
+    const navigate = useNavigate();
+
 
     const handleSearch = () => {
         const filteredMatches = allMatches.filter((match) => {
@@ -29,7 +29,7 @@ export default function SearchFilter({ allMatches, allTeams, onFilter }) {
             const matchesStage = stageFilter === '' || stageFilter.toLowerCase();
             // Continue with this in an hour.
 
-            navigate(`/match-details/${match.ID}`)
+            // navigate(`/match-details/${match.ID}`);
             return matchesSearchTerm & matchesStage;
         });
         onFilter(filteredMatches);
@@ -38,6 +38,8 @@ export default function SearchFilter({ allMatches, allTeams, onFilter }) {
         console.log(searchTerm);
         // console.log(stageFilter);
     }, [searchTerm]);
+    console.log(displayedMatches)
+
 
 
     return (

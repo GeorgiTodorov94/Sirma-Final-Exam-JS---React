@@ -37,6 +37,7 @@ export default function Matches() {
             const teamA = groupTeams.find(team => team.ID === match.ATeamID);
             const teamB = groupTeams.find(team => team.ID === match.BTeamID);
 
+
             return {
                 MatchID: match.ID,
                 Date: match.Date,
@@ -64,6 +65,7 @@ export default function Matches() {
     const groupedMatches = groupMatches(currentTeams, currentMatches);
     const groupKeys = Object.keys(groupedMatches);
 
+
     return (
         <>
             <h1 style={{ color: 'black' }}>Brackets</h1>
@@ -83,6 +85,8 @@ export default function Matches() {
                 ))}
             </div>
         </>
-    )
-}
+    );
+};
+
+
 

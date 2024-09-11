@@ -12,12 +12,8 @@ export default function MatchDetails() {
     const { data: matches } = useCSVData('matches.csv');
     const { data: teams } = useCSVData('teams.csv');
 
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
-    // A random idea ->>>>> \n
-    // Instead of calling useCSVData each time in every component I have to try to use createContext and save the data in the local storage
-    // so that the whole application can have access to this data instead of fetching it every time in every component it is needed.
-    // I need to start coding this idea in parseScv.js - export the function that will handle my idea. TO BE CONTINUED
 
     const [groupedPlayersByTeamID, setGroupedPlayersByTeamID] = useState([]);
 
@@ -32,15 +28,12 @@ export default function MatchDetails() {
     useEffect(() => {
         if (matches.length && teams.length) {
             const currentlySelectedMatch = matches.find(m => m.ID === matchID);
-            setLoading(false)
             setCurrentMatch(Object.assign({}, currentMatch, currentlySelectedMatch));
-            setLoading(true);
-            // console.log(currentMatch)
             // setCurrentMatch(prev => ({ ...prev, ...currentlySelectedMatch }));
             declarePlayersAndTeams();
-            setLoading(false);
         };
     }, [matches, players, teams, loading]);
+    console.log(currentMatch);
 
     const groupingPlayersByTeamID = (data) => {
         return players.reduce((acc, player) => {
@@ -57,6 +50,7 @@ export default function MatchDetails() {
 
     function declarePlayersAndTeams() {
         let playersByTeams = groupingPlayersByTeamID(players);
+        // console.log(playersByTeams)
         setGroupedPlayersByTeamID(Object.values(playersByTeams));
 
         if (!groupedPlayersByTeamID.length) {
@@ -69,7 +63,7 @@ export default function MatchDetails() {
 
     if (!players.length || !teams.length || !currentMatch.ID) {
         return <div>Loading...</div>
-    }
+    };
 
     return (
         <>

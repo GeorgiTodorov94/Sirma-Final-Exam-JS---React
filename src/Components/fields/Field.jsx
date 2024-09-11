@@ -27,7 +27,7 @@ export default function Field({
             clubPlayers: groupedPlayersByTeamID
         }));
     }, [match, teams.data, matches.data, players.data, matchID]);
-    // console.log(match)
+    console.log(currentData.clubPlayers)
 
 
     if (!currentData.teams?.length || !currentData.currentMatch || !currentData.clubPlayers) {
@@ -43,9 +43,9 @@ export default function Field({
         // console.log(teamB)
 
 
-        const teamAPlayers = currentData?.clubPlayers[teamA?.ID] || 'Undefined';
+        const teamAPlayers = currentData?.clubPlayers[teamA?.ID - 1] || 'Undefined';
         // console.log(teamAPlayers)
-        const teamBPlayers = currentData?.clubPlayers[teamB?.ID] || 'Undefined';
+        const teamBPlayers = currentData?.clubPlayers[teamB?.ID - 1] || 'Undefined';
         // console.log(teamBPlayers)
 
         return {
@@ -57,8 +57,10 @@ export default function Field({
     };
 
     const matchDetails = getMatchTeams();
-    console.log(matchDetails.teamA.ID)
-    console.log(matchDetails.teamB.ID)
+    // console.log(matchDetails.teamA.ID)
+    // console.log(matchDetails.teamB.ID)
+    // console.log(matchDetails.teamAPlayers)
+    // console.log(matchDetails.teamBPlayers)
     // console.log(matchDetails.teamBPlayers)
     // console.log(matchDetails.teamB.Name)
 

@@ -9,6 +9,7 @@ import FetchAndProvideData from './utilities/dataContext'
 import Header from './Components/header/Header'
 import Footer from './Components/footer/Footer'
 import Finals from './Components/finals/Finals'
+
 function App() {
     return (
 

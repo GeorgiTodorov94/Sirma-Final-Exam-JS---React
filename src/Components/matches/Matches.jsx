@@ -28,6 +28,7 @@ export default function Matches() {
         const groupTeams = teams.filter(team => team.Group === groupName);
 
         const groupTeamIDs = groupTeams.map(team => team.ID);
+        console.log(groupTeamIDs)
 
         const groupMatches = matches.filter(match =>
             groupTeamIDs.includes(match.ATeamID) && groupTeamIDs.includes(match.BTeamID)
@@ -64,6 +65,7 @@ export default function Matches() {
 
     const groupedMatches = groupMatches(currentTeams, currentMatches);
     const groupKeys = Object.keys(groupedMatches);
+    // console.log(groupedMatches)
 
 
     return (

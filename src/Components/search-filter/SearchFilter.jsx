@@ -38,7 +38,6 @@ export default function SearchFilter({ allMatches, allTeams, onFilter }) {
         console.log(searchTerm);
         // console.log(stageFilter);
     }, [searchTerm]);
-    console.log(displayedMatches)
 
 
 
